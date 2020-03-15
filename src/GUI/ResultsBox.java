@@ -3,23 +3,27 @@ import MainSrc.ActivisData;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ResultsBox {
     public static void display()
     {
         Stage window = new Stage();
-        window.setTitle("Recorded Activities");
+        window.setTitle("Fitness Tracker - Recorded Activities");
+        window.initModality(Modality.APPLICATION_MODAL);
         window.setMinWidth(400);
 
         TableColumn<ActivisData,String> typeColumn= new TableColumn<>("Type");
         typeColumn.setMinWidth(125);
-        typeColumn.setCellValueFactory(new PropertyValueFactory<ActivisData,String>("type"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
 
         TableColumn<ActivisData,Integer> calsColumn= new TableColumn<>("Calories Burnt");
         calsColumn.setMinWidth(100);
@@ -33,13 +37,18 @@ public class ResultsBox {
         tableView.setItems(getActivities());
         tableView.getColumns().addAll(typeColumn,calsColumn,heartRateColumn);
 
+        Label calsLabel = new Label("\nTotal calories burnt: "+ActivisData.getTotalCals()+" Calories.");
+        Label heartRateLabel = new Label("Heart rate: ~"+ActivisData.getHeartRate()+" beats per minute.");
+
         VBox layout = new VBox();
-        layout.getChildren().add(tableView);
+        layout.setPadding(new Insets(10,10,10,10));
+        layout.getChildren().addAll(tableView,calsLabel,heartRateLabel);
 
-        Scene scene = new Scene(layout,370,400);
+        Scene scene = new Scene(layout,400,500);
 
+        window.setMinHeight(500);
         window.setScene(scene);
-        window.show();
+        window.showAndWait();
     }
 
     private static ObservableList<ActivisData> getActivities()

@@ -2,8 +2,8 @@ package MainSrc;
 
 public class ActivisData {
 
-    private static int totalCals;
-    private static float heartRate;
+    private static int totalCals = 0;
+    private static float heartRate = 80;
 
     private String type;
     private int calsBurnt;
