@@ -1,5 +1,6 @@
 package GUI;
 
+import Model.MainModel;
 import javafx.geometry.Insets;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -32,12 +33,10 @@ public class AddBox {
     }
     public static void handleAddButton()
     {
-        //setActivity(activityList.getValue());
-        //TODO:Implement Activity.setActivity(String)
+
         if (isTime(timeField))
         {
-            //setTime(Integer.parseInt(timeField.getText()));
-            //TODO:Implement Activity.setTime(int)
+            MainModel.setActivity(activityList.getValue(),Integer.parseInt(timeField.getText()));
             AlertBox.display("SUCCESS","Activity recorded successfully.");
             window.close();
         } else
@@ -94,4 +93,5 @@ public class AddBox {
         });
 
     }
+
 }

@@ -2,9 +2,6 @@ package MainSrc;
 
 public class ActivisData {
 
-    private static int totalCals = 0;
-    private static float heartRate = 80;
-
     private String type;
     private int calsBurnt;
     private double heartRateInc;
@@ -37,21 +34,5 @@ public class ActivisData {
 
     public void setHeartRateInc(double heartRateInc) {
         this.heartRateInc = heartRateInc;
-    }
-
-    public static void setTotalCals(int totalCals) {
-        ActivisData.totalCals = totalCals;
-    }
-
-    public static void setHeartRate(float heartRate) {
-        ActivisData.heartRate = heartRate;
-    }
-
-    public static int getTotalCals() {
-        return totalCals;
-    }
-
-    public static float getHeartRate() {
-        return heartRate;
     }
 }

@@ -1,6 +1,7 @@
 package GUI;
 import MainSrc.ActivisData;
 
+import Model.MainModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -37,8 +38,9 @@ public class ResultsBox {
         tableView.setItems(getActivities());
         tableView.getColumns().addAll(typeColumn,calsColumn,heartRateColumn);
 
-        Label calsLabel = new Label("\nTotal calories burnt: "+ActivisData.getTotalCals()+" Calories.");
-        Label heartRateLabel = new Label("Heart rate: ~"+ActivisData.getHeartRate()+" beats per minute.");
+        //TODO:fix this
+        Label calsLabel = new Label("\nTotal calories burnt: "+MainModel.cals+" Calories.");
+        Label heartRateLabel = new Label("Heart rate: ~"+MainModel.heartRate+" beats per minute.");
 
         VBox layout = new VBox();
         layout.setPadding(new Insets(10,10,10,10));
@@ -53,11 +55,8 @@ public class ResultsBox {
 
     private static ObservableList<ActivisData> getActivities()
     {
-        ObservableList<ActivisData> activities = FXCollections.observableArrayList();
-        /*activities.add(new ActivisData("Swimming",150,(8.0/1000.0)));
-        activities.add(new ActivisData("Swimming",40,6.0/1000.0));
-        activities.add(new ActivisData("Kick Boxing",20,2/1000.0));
-        activities.add(new ActivisData("Running",10,9/1000.0));*/
+        ObservableList<ActivisData> activities;
+        activities = MainModel.data;
         return activities;
     }
 }
