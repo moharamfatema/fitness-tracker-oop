@@ -1,0 +1,54 @@
+.root{
+    -fx-background-color: #393e46;
+}
+
+.label{
+    -fx-text-fill: #f7f5dd;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+/*Buttons*/
+.button{
+    -fx-background-color: linear-gradient(#086972,#121212);
+    -fx-background-radius: 5;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+.button:focused{
+    -fx-background-color: linear-gradient(#002661,#92FFC0);
+}
+.button:pressed{
+    -fx-background-color: linear-gradient(#086972,#a2de96);
+}
+
+/*Table view*/
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: #3ca59d;
+    -fx-table-header-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color:transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 25;
+    -fx-background-color: linear-gradient(#086972,#121212);
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f7f5dd;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+/*Combo box*/
